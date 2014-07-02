@@ -60,9 +60,11 @@
 
     $window
       .on('resize.sidestick', function() {
-        $sidebar.removeClass('fixed');
-        elTop = $sidebar.offset().top;
-        $window.trigger('scroll.sidestick');
+        if ($sidebar.length){
+          $sidebar.removeClass('fixed');
+          elTop = $sidebar.offset().top;
+          $window.trigger('scroll.sidestick');
+        }
       })
       .on('scroll.sidestick', function() {
         var scrollY = $window.scrollTop();
